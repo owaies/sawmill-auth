@@ -23,13 +23,20 @@ if ($user && $password === $user['password']) {
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(120deg, #3498db, #8e44ad);
+      background: linear-gradient(-90deg, #f02e14, #2575fc, #2575fc, #e60808);
+      animation: gradientBG 10s ease infinite;
+      background-size: 400% 400%;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #fff;
     }
+    @keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
     .welcome-box {
       background: rgba(0, 0, 0, 0.3);
