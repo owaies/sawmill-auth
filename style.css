@@ -1,58 +1,108 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(120deg, #2980b9, #8e44ad);
+}
+
+body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #43cea2, #185a9d);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-  width: 350px;
-  text-align: center;
-  transition: all 0.4s ease-in-out;
+  perspective: 1000px;
 }
 
-input {
+.card {
+  width: 360px;
+  height: 440px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
   width: 100%;
-  margin: 10px 0;
+  height: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-face h2 {
+  margin-bottom: 20px;
+  color: #6c5ce7;
+}
+
+.card-face input {
+  width: 100%;
   padding: 12px;
+  margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: 0.3s;
+  border-radius: 8px;
+  transition: border 0.3s ease;
 }
 
-input:focus {
+.card-face input:focus {
   border-color: #6c5ce7;
+  outline: none;
 }
 
-button {
+.card-face button {
   width: 100%;
   padding: 12px;
   background: #6c5ce7;
   border: none;
   color: white;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background 0.3s;
 }
 
-button:hover {
+.card-face button:hover {
   background: #5e50c7;
 }
 
-#toggle-text {
+.card-face .toggle {
   margin-top: 20px;
+  color: #333;
+  font-size: 0.9em;
 }
 
-#toggle-text span {
+.card-face .toggle span {
   color: #6c5ce7;
   cursor: pointer;
   font-weight: bold;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(180deg);
 }
