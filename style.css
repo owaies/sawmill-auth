@@ -10,9 +10,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(-45deg, #6a11cb, #2575fc, #43cea2, #185a9d);
+  background: linear-gradient(-90deg, #f02e14, #2575fc, #2575fc, #e60808);
   background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  animation: gradientBG 10s ease infinite;
 }
 
 @keyframes gradientBG {
